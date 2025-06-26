@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+    <style>
+        section{
+            margin-bottom: 15px;
+        }
+        th{
+            text-align: start;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <head>
+        <h3>Rock Paper Scissors</h3>
+    </head>
+    <main>
+        <section>
+            <button onclick="
+                userPicked = 'Rock';
+                pickRandomItem()
+                resultProcess()
+                display();
+            ">Rock</button>
+
+            <button onclick="
+                userPicked = 'Paper';
+                pickRandomItem()
+                resultProcess()
+                display();
+            ">Paper</button>
+
+            <button onclick="
+                userPicked = 'Scissor';
+                pickRandomItem()
+                resultProcess()
+                display();
+            ">Scissors</button>
+        </section>
+        <section>
+            <table>
+                <tr>
+                    <th>Win:</th>
+                    <th id="winScore">0</th>
+
+                </tr>
+                <tr>
+                    <th>Lose:</th>
+                    <th id="loseScore">0</th>
+
+                </tr>
+                <tr>
+                    <th>Tie:</th>
+                    <th id="tieScore">0</th>
+
+                </tr>
+            </table>
+        </section>    
+    </main>
+    <footer>
+        <p><a href="" target="_blank">Click here</a> to see the final of the project.</p>
+    </footer>
+
+    <script>
+        let result = '';
+        let win = 0;
+        let lose = 0;
+        let tie = 0;
+        let userPicked;
+        let computerPicked;
+
+        function pickRandomItem(){
+            const item = ['Paper','Scissor','Rock'];
+            computerPicked = item[Math.floor(Math.random() * item.length)];
+        }
+
+        function display(){
+            alert(`You picked ${userPicked}. Computer picked ${computerPicked}. ${result}` );
+            document.getElementById('winScore').textContent = win;
+            document.getElementById('loseScore').textContent = lose;
+            document.getElementById('tieScore').textContent = tie;
+        }
+
+        function resultProcess(){
+            if (computerPicked === userPicked){
+                result = 'tie!';
+                tie += 1;
+            }else if((userPicked === 'Paper' && computerPicked === 'Rock') ||
+                (userPicked === 'Scissor' && computerPicked === 'Paper') ||
+                (userPicked === 'Rock' && computerPicked === 'Scissor')){
+                result = 'You win!';
+                win += 1;
+            } else {
+                result =  "You lose!";
+                lose += 1
+            }
+
+        }
+    </script>
+</body>
+</html>
