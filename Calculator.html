@@ -80,102 +80,34 @@
     </header>
     <section>
       <div class="row">
-        <button onclick="
-          console.log(calculation +=1);
-          answer = '';
-          updateDisplay();
-        ">1</button>
-        <button onclick="
-          console.log(calculation+=2);
-          answer = '';
-          updateDisplay();
-        ">2</button>
-        <button onclick="
-          console.log(calculation+=3);
-          answer = '';
-          updateDisplay();
-        ">3</button>
-        <button onclick="
-          console.log(calculation+='+');
-          updateDisplay();
-        ">+</button>
+        <button onclick=" formula(1) ">1</button>
+        <button onclick=" formula(2) ">2</button>
+        <button onclick=" formula(3) ">3</button>
+        <button onclick=" formula('+') ">+</button>
       </div>
 
       <div class="row">
-        <button onclick="
-        console.log(calculation+=4);
-        answer = '';
-        updateDisplay();
-        ">4</button>
-        <button onclick="
-        console.log(calculation+=5);
-        answer = '';
-        updateDisplay();
-        ">5</button>
-        <button onclick="
-        console.log(calculation+=6);
-        answer = '';
-        updateDisplay();
-        ">6</button>
-        <button onclick="
-        console.log(calculation+='-');
-        updateDisplay();
-        ">-</button>
+        <button onclick=" formula(4) ">4</button>
+        <button onclick=" formula(5) ">5</button>
+        <button onclick=" formula(6) ">6</button>
+        <button onclick=" formula('-') ">-</button>
       </div>
 
       <div class="row">
-        <button onclick="
-        console.log(calculation+=7);
-        answer = '';
-        updateDisplay();
-        ">7</button>
-        <button onclick="
-        console.log(calculation+=8);
-        answer = '';
-        updateDisplay();
-        ">8</button>
-        <button onclick="
-        console.log(calculation+=9);
-        answer = '';
-        updateDisplay();
-        ">9</button>
-        <button onclick="
-        console.log(calculation+='*');
-        updateDisplay();
-        ">*</button>
+        <button onclick=" formula(7) ">7</button>
+        <button onclick=" formula(8) ">8</button>
+        <button onclick=" formula(9) ">9</button>
+        <button onclick=" formula('*') ">*</button>
       </div>
       <div class="row">
-        <button onclick="
-        console.log(calculation+=0);
-        answer = '';
-        updateDisplay();
-        ">0</button>
-        <button onclick="
-        console.log(calculation+='.');
-        updateDisplay();
-        ">.</button>
-        <button onclick="
-        console.log( calculation + ' = ' + (answer = eval(calculation)));
-        updateDisplay();
-        ">=</button>
-        <button onclick="
-        console.log(calculation+='/');
-        updateDisplay();
-        console.log(answer);
-        
-        ">/</button> 
+        <button onclick=" formula(2) ">0</button>
+        <button onclick=" formula('.') ">.</button>
+        <button onclick=" formula('=') ">=</button>
+        <button onclick=" formula('/') ">/</button> 
       </div>
-
       <div>
-        <button class="clear button" onclick="
-            clr();
-            console.log(calculation);
-        ">Clear</button>
-        <button class="reset button" onclick="
-        console.log(calculation='');
-        answer = '';
-        updateDisplay();
-        ">Reset</button>
+        <button class="clear button" onclick=" clr() ">Clear</button>
+        <button class="reset button" onclick=" formula('r') ">Reset</button>
       </div>
     </section>
     <footer>
@@ -184,18 +116,37 @@
   </main>
 
   <script>
-    let calculation = '';
-    let answer ;
+    let calculate = '';
+    let answer;
 
     function updateDisplay() {
-      document.getElementById("display").textContent = calculation;
-      document.getElementById('answer').textContent = `Total: ${answer}`;
-      
+      document.getElementById("display").textContent = calculate;
+      answer ? (document.getElementById('answer').textContent = `Total: ${answer}`)
+      : document.getElementById('answer').textContent = '';
     }
-    function clr(){
-      calculation = calculation.slice(0, -1);
-      answer = '';
+    
+      function clr(){
+      calculate = calculate.slice(0, -1);
+      console.log(calculate);
+      answer = 0; 
       updateDisplay();
+    }
+
+    function formula(userinput){
+      if (userinput) {
+        if (userinput === 'r' || userinput === '=') {
+          if (userinput === 'r') {
+            calculate = ''
+          } else{
+            console.log( calculate + ' = ' + (answer = eval(calculate)));
+          } 
+        }else {
+          answer = 0
+          calculate += userinput;
+        }
+      }
+      console.log(calculate);
+      updateDisplay();  
     }
   </script>
 </body>
