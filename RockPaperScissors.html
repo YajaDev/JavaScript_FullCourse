@@ -2,15 +2,6 @@
 <html>
 <head>
     <title>Rock Paper Scissors</title>
-    <style>
-        section{
-            margin-bottom: 15px;
-        }
-        th{
-            text-align: start;
-            padding: 5px;
-        }
-    </style>
 </head>
 <body>
     <head>
@@ -19,44 +10,25 @@
     <main>
         <section>
             <button onclick="
-                userPicked = 'Rock';
                 pickRandomItem()
-                resultProcess()
+                resultProcess('Rock')
                 display();
             ">Rock</button>
 
             <button onclick="
-                userPicked = 'Paper';
                 pickRandomItem()
-                resultProcess()
+                resultProcess('Paper')
                 display();
             ">Paper</button>
 
             <button onclick="
-                userPicked = 'Scissor';
                 pickRandomItem()
-                resultProcess()
+                resultProcess('Scissor')
                 display();
             ">Scissors</button>
-        </section>
-        <section>
-            <table>
-                <tr>
-                    <th>Win:</th>
-                    <th id="winScore">0</th>
-
-                </tr>
-                <tr>
-                    <th>Lose:</th>
-                    <th id="loseScore">0</th>
-
-                </tr>
-                <tr>
-                    <th>Tie:</th>
-                    <th id="tieScore">0</th>
-
-                </tr>
-            </table>
+            <button onclick="
+            resetScore();
+            ">Reset Button</button>
         </section>    
     </main>
     <footer>
@@ -65,11 +37,10 @@
 
     <script>
         let result = '';
-        let win = 0;
-        let lose = 0;
-        let tie = 0;
         let userPicked;
         let computerPicked;
+
+        let score = JSON.parse(localStorage.getItem('score'));
 
         function pickRandomItem(){
             const item = ['Paper','Scissor','Rock'];
@@ -77,26 +48,36 @@
         }
 
         function display(){
-            alert(`You picked ${userPicked}. Computer picked ${computerPicked}. ${result}` );
-            document.getElementById('winScore').textContent = win;
-            document.getElementById('loseScore').textContent = lose;
-            document.getElementById('tieScore').textContent = tie;
+            alert(`You picked ${userPicked}. Computer picked ${computerPicked}. ${result}
+            \nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+            console.log(JSON.parse(localStorage.getItem('score')));  
         }
 
-        function resultProcess(){
+        function resultProcess(pick){
+            userPicked = pick
+
             if (computerPicked === userPicked){
                 result = 'tie!';
-                tie += 1;
+                score.ties += 1;
             }else if((userPicked === 'Paper' && computerPicked === 'Rock') ||
                 (userPicked === 'Scissor' && computerPicked === 'Paper') ||
                 (userPicked === 'Rock' && computerPicked === 'Scissor')){
                 result = 'You win!';
-                win += 1;
+                score.wins += 1;
             } else {
                 result =  "You lose!";
-                lose += 1
+                score.losses += 1
             }
+        
+            localStorage.setItem('score', JSON.stringify(score));
+        }
 
+        function resetScore() {
+            score.wins = 0;
+            score.losses = 0;
+            score.ties = 0;
+            alert("Score has been reset.");
+            console.log(score);
         }
     </script>
 </body>
