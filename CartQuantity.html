@@ -5,7 +5,8 @@
   </head>
   <body>
     <button onclick="
-      console.log(`Cart quantity: ${cartQuantity}`);
+
+      updateCartQuantity();
     ">Show Quantity</button>
 
     <button onclick="
@@ -42,12 +43,15 @@
 
     <button onclick="
       cartQuantity = 0;
-      console.log('Cart was reset.');
-      console.log(`Cart quantity: ${cartQuantity}`);
+      updateCartQuantity()
     ">Reset Cart</button>
 
+    <p id="quantity"></p>
+
     <script>
-      let cartQuantity = 0;
+      let cartQuantity = JSON.parse(localStorage.getItem('quantity'));
+
+      updateCartQuantity();
 
       function updateCartQuantity(change) {
         if (cartQuantity + change > 10) {
@@ -58,8 +62,12 @@
           alert('Not enough items in the cart');
           return    
         }
-        cartQuantity += change;
-        console.log(`Cart quantity: ${cartQuantity}`);
+        //add to quantity if change is falsy
+        change && (cartQuantity += change); 
+        
+        localStorage.setItem('quantity', String(cartQuantity));
+        
+        document.getElementById('quantity').innerText = `Cart quantity: ${cartQuantity}`;
       }
     </script>
   </body>
