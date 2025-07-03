@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <p>YouTube Subscribe Button</p>
+        <button class="subscribe-btn" onclick="
+            Subscribe()
+        ">Subscribe</button>
+    </section>
+
+    <!-- Shipping Calculator -->
+    <section>
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <div>
+            <input type="number" placeholder="Cost of order" id="cost" onkeydown="
+                handleKeyDown(event);
+            ">
+            <button onclick="
+                calculate();
+            " class="calculate-btn">Calculate</button>
+        </div>
+        <p id="total-cost"></p>
+    </section>
+    
+    <!-- Rock Paper Scissors -->
+    <section>
+        <p>Rock Paper Scissors</p>
+
+        <a href="../Rock Paper Scissors/index.html" target="_blank">Click here</a>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

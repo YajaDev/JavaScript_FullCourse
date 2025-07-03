@@ -1,0 +1,38 @@
+body{
+    font-family: Arial;
+}
+
+section{
+    margin-bottom: 50px;
+}
+
+/* for Subscribe Button */
+.subscribe-btn {
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.is-subscribed{
+    background-color: rgb(240, 240, 240);
+    color: black;
+}
+
+/* for Shipping Calculator */
+input{
+    font-size: 15px;
+    padding: 10px;
+}
+
+.calculate-btn{
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 15px;
+    padding: 12px 15px;
+    cursor: pointer;
+}
