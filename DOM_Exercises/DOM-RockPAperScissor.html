@@ -22,24 +22,24 @@
     ">Scissors</button>
 
     <p id="js-result"></p>
-
     <p id="js-moves"></p>
-
     <p id="js-score"></p>
 
     <button onclick="
     resetScore();
     ">Reset Button</button>
 
-
-    <p><a href="" target="_blank">Click here</a> to see the final of the project.</p>
-
+    <p><a href="../With_CSS/Rock Paper Scissors/index.html" target="_blank">Click here</a> to see the final of the project.</p>
 
     <script>
         let result = '';
         let userPicked;
         let computerPicked;
-        let score = JSON.parse(localStorage.getItem('score'));
+        let score = JSON.parse(localStorage.getItem('score') || {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        });
         
         //display after refresh
         displayScore();
@@ -84,9 +84,7 @@
             document.querySelector('#js-result').innerText = result;
             displayScore();
             console.log(JSON.parse(localStorage.getItem('score')));
-        }
-
-        
+        }    
     </script>
 </body>
 </html>
