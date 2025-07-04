@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Calculator</title>
+</head>
+<body>
+  <main>
+    <header>
+        <h1>Calculator</h1>
+        <div tabindex="0" class="onDisplay" onkeypress=" 
+            formula(event.key);
+          ">
+          <div id="display"></div>
+          <div id="answer"></div>
+        </div>
+    </header>
+    <section>
+      <div class="row">
+        <button onclick=" formula(1) ">1</button>
+        <button onclick=" formula(2) ">2</button>
+        <button onclick=" formula(3) ">3</button>
+        <button class="operator" onclick=" formula('+') ">+</button>
+      </div>
+
+      <div class="row">
+        <button onclick=" formula(4) ">4</button>
+        <button onclick=" formula(5) ">5</button>
+        <button onclick=" formula(6) ">6</button>
+        <button class="operator" onclick=" formula('-') ">-</button>
+      </div>
+
+      <div class="row">
+        <button onclick=" formula(7) ">7</button>
+        <button onclick=" formula(8) ">8</button>
+        <button onclick=" formula(9) ">9</button>
+        <button class="operator" onclick=" formula('*') ">*</button>
+      </div>
+      <div class="row">
+        <button onclick=" formula(0) ">0</button>
+        <button onclick=" formula('.') ">.</button>
+        <button onclick=" formula('=') ">=</button>
+        <button class="operator" onclick=" formula('/') ">/</button> 
+      </div>
+      <div>
+        <button class="clear button" onclick=" clr() ">Clear</button>
+        <button class="reset button" onclick=" formula('Delete') ">Reset</button>
+      </div>
+    </section>
+    <footer>
+      <small>Simple HTML calculator layout</small>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
