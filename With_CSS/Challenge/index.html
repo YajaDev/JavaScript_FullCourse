@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <fieldset>
+        <button class="gaming-btn" onclick="
+            toggleButton('.gaming-btn');
+        ">Gaming</button>
+        <button class="music-btn" onclick="
+            toggleButton('.music-btn');
+        ">Music</button>
+        <button class="tech-btn" onclick="
+            toggleButton('.tech-btn');
+        ">Tech</button>
+    </fieldset>
+    <fieldset>
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <div>
+            <input type="number" placeholder="Cost of order" id="cost" onkeydown="
+                handleKeyDown(event);
+            ">
+            <button onclick="
+                calculate();
+            " class="calculate-btn">Calculate</button>
+        </div>
+        <p id="total-cost"></p>
+    </fieldset>
+    <script src="script.js"></script>
+</body>
+</html>
