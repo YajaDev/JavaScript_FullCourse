@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To-do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <p>To-do List Practice 1</p>
+        <div>
+            <input type="text" id="to-do_name_p1" placeholder="To-do name">
+            <button onclick="
+                const todoNameElementP1 = document.getElementById('to-do_name_p1');
+                AddTodo(todoNameElementP1.value, todoNameElementP1);
+            ">Add</button>
+        </div>
+    </section>
+    <section>
+        <p>To-do List Practice 2</p>
+        <div>
+            <input type="text" id="to-do_name_p2" placeholder="To-do name">
+            <button onclick="
+                const todoNameElementP2 = document.getElementById('to-do_name_p2')
+                AddTodo(todoNameElementP2.value, todoNameElementP2);
+            ">Add</button>
+        </div>
+        <div id="to-do_list_ontainer_P2"></div>
+    </section>
+    <section>
+        <p>To-do List</p>
+        <div class="to-do_container">
+            <input type="text" id="to-do_name" placeholder="To-do name">
+            <input type="date" id="due_date">
+            <button class="add_btn" onclick="
+                const todoNameElement = document.getElementById('to-do_name')
+                AddTodo(todoNameElement.value, todoNameElement);
+            ">Add</button>
+        </div>
+        <div id="to-do_list_ontainer"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+section {
+    font: 17px Arial;
+    margin-bottom: 50px;
+}
+
+#due_date {
+    font-size: 14px;
+    padding: 7px;
+}
+
+#to-do_name {
+    font-size: 15px;
+    padding: 8px;
+}
+
+.to-do_container,
+.list {
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    align-items: center;
+    column-gap: 10px;
+    margin-bottom : 10px ;
+}
+
+.add_btn,
+.delete_btn {
+    font-size: 15px;;
+    padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete_btn {
+    background-color: darkred;
+}
+
+.add_btn {
+    background-color: darkgreen;
+} 
