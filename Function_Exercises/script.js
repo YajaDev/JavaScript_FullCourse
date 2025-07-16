@@ -23,7 +23,7 @@ convertToCelsius(86);
 
 function convertTemperature(degrees, unit) {
     if (unit === 'C') {
-      const result = convertToFahrenheit(degrees);
+      const result = convertToFarenheit(degrees);
       return `${result}F`;
     } else if (unit === 'F') {
       const result = convertToCelsius(degrees);
