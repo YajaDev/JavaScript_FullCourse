@@ -8,24 +8,15 @@
     <main>
         <p class="title">Rock Paper Scissors</p>
 
-        <button onclick="
-            pickRandomItem()
-            playGame('Rock')
-        " class="move-btn">
+        <button id="rock-btn" class="move-btn">
             <img src="images/rock-emoji.png" alt="Rock" class="move-icon">
         </button>
 
-        <button onclick="
-            pickRandomItem()
-            playGame('Paper')
-        " class="move-btn">
+        <button id="paper-btn" class="move-btn">
             <img src="images/paper-emoji.png" alt="Paper" class="move-icon">
         </button>
 
-        <button onclick="
-            pickRandomItem()
-            playGame('scissor')
-        " class="move-btn">
+        <button id="scissor-btn" class="move-btn">
             <img src="images/scissor-emoji.png" alt="scissor" class="move-icon">
         </button>
 
@@ -35,9 +26,16 @@
 
         <p id="js-score" class="score"></p>
 
-        <button onclick="
-        resetScore();
-        " class="reset-btn">Reset Score</button>
+        <button class="reset-btn">Reset Score</button>
+
+        <button class="autoPlay-btn">Auto Play</button>
+        <div id="reset_msg_container">
+            <!-- 
+            <p>Are you sure you want to reset the score?</p>
+            <button id="yes-btn" class="reset-mgs-btn">Yes</button>
+            <button id="no-btn" class="reset-mgs-btn">No</button> 
+            -->
+        </div>
     </main>
     <Script src="script.js"></Script>
 </body>

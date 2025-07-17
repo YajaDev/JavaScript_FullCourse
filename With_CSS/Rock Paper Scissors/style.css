@@ -31,12 +31,27 @@ body{
     margin-top: 50px;
 }
 
-.reset-btn{
+.reset-btn,
+.autoPlay-btn{
     font-size: 15px;
+    margin-right: 2px;
     padding: 10px 15px;
     border: none;
 }
 
+#reset_msg_container{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.reset-mgs-btn{
+    border: none;
+    margin-left: 15px;
+    padding: 10px 20px;
+}
+
 button{
+    border-radius: 2px;
     cursor: pointer;
 }
